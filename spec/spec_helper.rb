@@ -75,6 +75,7 @@ class StreamingServerManager
           'RAILS_ENV' => ENV.fetch('RAILS_ENV', 'test'),
           'NODE_ENV' => ENV.fetch('STREAMING_NODE_ENV', 'development'),
           'PORT' => port.to_s,
+          'DEBUG' => 'ioredis:*',
         },
         'node index.js', # must not call yarn here, otherwise it will fail because yarn does not send signals to its child process
         chdir: Rails.root.join('streaming')
